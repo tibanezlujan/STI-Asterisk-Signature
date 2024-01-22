@@ -1,5 +1,5 @@
 
-* STI signature generator
+*STI signature generator*
 
 The aim of this script is to get a signature using a private key and a public key for a call
 
