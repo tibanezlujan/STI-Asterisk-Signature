@@ -28,9 +28,11 @@ def attestation_level_call(orig_tn,dest_tn,cc):
         lenCC=len(cc)
         prefixA=orig_tn[1:lenCC]
         prefixB=dest_tn[1:lenCC]
+        prefixCC=cc[1:]
 
         #Check if is national call
-        if prefixA==prefixB and prefixA==cc[1:]:
+        #print(prefixA+" "+prefixB+" "+prefixCC)
+        if prefixA==prefixB and prefixA==prefixCC:
 
                 if checkOriginFullAttest(orig_tn):
                     return("A")
@@ -135,7 +137,7 @@ except Exception as err:
             print("The aim of this script is to get a signature using a private key and a public key for a call.")
             print("An Identity heder will be send.")
             print("This is how to call the script:")
-            print("bash>python3 STIsigner_v2.py +cc +orig_tn +dest_tn locationPrivateKeu LocationPublicKey http://certificate-website.net")
+            print("bash>python3 STIsigner_v2.py +cc +orig_tn +dest_tn locationPrivateKey LocationPublicKey http://certificate-website.net")
             print("")
             exit()
         else:
