@@ -15,12 +15,20 @@ import sys
 #FUNCTIONS
 ################################################################################
 
-def checkOriginFullAttest(orig_tn):
-    #TODO:      Here we need to check if the call is attested A or B, depending on if the customer
-    #           is passing screening or is just a carrier. For the moment, as we cannot determine
-    #           via database we will set this as validation A not true.
+def checkOriginAttestA(orig_tn):
+    file="DDI/aNumbersSTI.txt" 
+    f=open(file, "r")
+    for line in f:
+        if orig_tn in line:
+            return(True)
+    return(False)
 
-    #return(True)
+def checkOriginAttestB(orig_tn):
+    file="DDI/bNumbersSTI.txt"
+    f=open(file, "r")
+    for line in f:
+        if orig_tn in line:
+            return(True)
     return(False)
 
 
@@ -34,10 +42,12 @@ def attestation_level_call(orig_tn,dest_tn,cc):
         #print(prefixA+" "+prefixB+" "+prefixCC)
         if prefixA==prefixB and prefixA==prefixCC:
 
-                if checkOriginFullAttest(orig_tn):
+                if checkOriginAttestA(orig_tn):
                     return("A")
-                else:
+                elif checkOriginAttestB(orig_tn):
                     return("B")
+                else:
+                    return("C")
 
         else:
                 return("C")
