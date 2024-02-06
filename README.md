@@ -1,4 +1,4 @@
-*STI signature generator*
+# STI signature generator*
 
 In order to mitigate robocalls, STIR/SHAKEN has started to be implemented in different countries like United States or France. This suite of protocols is used for avoiding robocalls and callerId spoofing via PSTN. STIR (Secure Telephone Identity Revisited) SHAKEN (Signature-based Handling of Asserted information using toKENs), as explained in Wikipedia, is a uite of protocols and procedures intended to combat caller ID spoofing on public telephone networks. Caller ID spoofing is used by robocallers to mask their identity or to make it appear the call is from a legitimate source.
 
@@ -17,7 +17,7 @@ STIsigner.cfg is the file that contains the values per default of all the most r
 
 
 
-USAGE:
+# USAGE:
 
 	bash> python3 STIsigner.py +cc +orig_tn +dest_tn pathToPrivateKey pathToPublicKey http://certificate-website.net
 
@@ -29,7 +29,7 @@ USAGE:
 		http://certificate-website.net	= URL where is available the certificate for verifying the calls from the other end
 
 
-FILES/FOLDER STRUCTURE:
+# FILES/FOLDER STRUCTURE:
 
 	script-folder/
 	|
@@ -45,7 +45,7 @@ FILES/FOLDER STRUCTURE:
 	     |-cNumbersSTI.txt (List of C numbers)
 
 
-MODULES:
+# MODULES:
 
 	- json
 	- jwt
@@ -54,12 +54,12 @@ MODULES:
 	- sys
 
 
-RELATED PROJECTS:
+# RELATED PROJECTS:
 
 	https://github.com/jpadilla/pyjwt/
 
 
-LIMITATIONS:
+# LIMITATIONS:
 
 	- TODO: Private keys should not use password, otherwise cannot be processed.
 
